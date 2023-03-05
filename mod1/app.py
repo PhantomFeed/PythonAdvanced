@@ -9,6 +9,7 @@ app = Flask(__name__)
 list_cars = ['Chevrolet', 'Renault', 'Ford', 'Lada']
 list_cats = ['корниш-рекс', 'русская голубая', 'шотландская вислоухая', 'мейн-кун', 'манчкин']
 visits = 0
+
 @app.route('/hello_world')
 def hello_world():
     return 'Привет, мир!'
