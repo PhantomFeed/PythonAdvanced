@@ -25,4 +25,4 @@ def calculator_year_and_month(year, month):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
