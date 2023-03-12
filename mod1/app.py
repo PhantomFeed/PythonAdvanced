@@ -10,6 +10,18 @@ list_cars = ['Chevrolet', 'Renault', 'Ford', 'Lada']
 list_cats = ['корниш-рекс', 'русская голубая', 'шотландская вислоухая', 'мейн-кун', 'манчкин']
 visits = 0
 
+
+def reader_txt(file):
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    BOOK_FILE = os.path.join(BASE_DIR, file)
+
+    with open(BOOK_FILE) as book:
+        war_and_peace = book.read()
+        war_and_peace = re.findall('[a-zа-яё]+', war_and_peace, flags=re.IGNORECASE)
+    return war_and_peace
+
+war_and_peace = reader_txt('war_and_peace.txt')
+
 @app.route('/hello_world')
 def hello_world():
     return 'Привет, мир!'
@@ -39,8 +51,8 @@ def get_time_future():
 
 
 @app.route('/get_random_word')
-def random_word():
-    return
+def get_random_word():
+    return random.choice(war_and_peace)
 
 
 @app.route('/counter')
