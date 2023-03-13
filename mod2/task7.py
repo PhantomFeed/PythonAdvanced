@@ -4,23 +4,25 @@ app = Flask(__name__)
 storage = {}
 
 
-def saver(date, number):
+@app.route('/add/<int:date>/<int:expense>')
+def saver(date, expense):
     if len(str(date)) == 8:
         date = str(date)
-        storage.setdefault(date[:4], {}).setdefault(date[4:6], 0)
-        storage[date[:4]][date[4:6]] += number
-        return 'Информация сохранена'
+        year, month = date[:4], date[4:6]
+        storage.setdefault(year, {}).setdefault(month, 0)
+        storage[year][month] += expense
+        return 'Информация сохранена!'
 
 
 @app.route('/calculate/<int:year>')
-def calculator_for_year(year):
+def calculate_for_year(year):
     months = storage[str(year)]
-    total = sum([number for key, number in months.items()])
+    total = sum([expense for key, expense in months.items()])
     return f'Суммарные траты за указанный год: {total}'
 
 
 @app.route('/calculate/<int:year>/<int:month>')
-def calculator_year_and_month(year, month):
+def calculate_year_and_month(year, month):
     return f'Суммарные траты за указанные год и месяц: {storage[str(year)][str(month)]}'
 
 
