@@ -21,7 +21,7 @@ class TestFinanceApp(unittest.TestCase):
                                    '09': 22000,
                                    '10': 19000,
                                    '11': 8000,
-                                   '12': 01
+                                   '12': 0
                                    }
                               }
 
