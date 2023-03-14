@@ -21,7 +21,7 @@ class Person:
         self.address = address
 
     def get_address(self):
-        return self.address1
+        return self.address
 
     def is_homeless(self):
         '''
