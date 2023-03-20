@@ -1,9 +1,12 @@
-from typing import Optional
-from flask import Flask
+import subprocess
+from typing import Optional, List
+from flask import Flask, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, Field, ValidationError
 from wtforms.validators import InputRequired, Email, NumberRange
 from datetime import timedelta
+import shlex
+import string
 
 app = Flask(__name__)
 
@@ -52,8 +55,19 @@ def get_uptime():
     return f"Current uptime is {uptime}"
 
 
-# @app.route('/ps', methods=['GET'])
-# def
+@app.route('/ps', methods=['GET'])
+def _ps():
+    arguments: List[str] = request.args.getlist('arg')
+    arguments_cleaned = [shlex.quote(s) for s in arguments]
+    command_str = f"ps {' '.join(arguments_cleaned)}"
+    command = shlex.split(command_str)
+    result = subprocess.run(command, capture_output=True)
+
+    if result.returncode != 0:
+        return 'Something went wrong', 500
+
+    output = result.stdout.decode()
+    return string.Template(f"<pre>${output}</pre>").substitute(output=output)
 
 
 if __name__ == "__main__":
