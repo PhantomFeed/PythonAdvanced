@@ -57,7 +57,7 @@ def get_uptime():
 
 @app.route('/ps', methods=['GET'])
 def _ps():
-    arguments: List[str] = request.args.getlist('arg')
+    arguments: list[str] = request.args.getlist('arg')
     arguments_cleaned = [shlex.quote(s) for s in arguments]
     command_str = f"ps {' '.join(arguments_cleaned)}"
     command = shlex.split(command_str)
@@ -67,7 +67,7 @@ def _ps():
         return 'Something went wrong', 500
 
     output = result.stdout.decode()
-    return string.Template(f"<pre>${output}</pre>").substitute(output=output)
+    return string.Template('<pre>${output}</pre>').substitute(output=output)
 
 
 if __name__ == "__main__":
