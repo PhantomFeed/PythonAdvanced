@@ -1,12 +1,8 @@
-import subprocess
-from typing import Optional, List
-from flask import Flask, request
+from typing import Optional
+from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, Field, ValidationError
-from wtforms.validators import InputRequired, Email, NumberRange
-from datetime import timedelta
-import shlex
-import string
+from wtforms.validators import InputRequired, Email
 
 app = Flask(__name__)
 
@@ -15,6 +11,7 @@ def number_length(min: int, max: int, message: Optional[str] = 'Number is invali
     def _number_length(form: FlaskForm, field: Field):
         if len(str(field.data)) > max or len(str(field.data)) < min:
             raise ValidationError(message=message)
+
     return _number_length
 
 
@@ -45,29 +42,6 @@ def registration():
         email, phone = form.email.data, form.phone.data
         return f'Successfully registered user {email} with phone +7{phone}'
     return f'Invalid input, {form.errors}', 400
-
-
-@app.route('/uptime', methods=['GET'])
-def get_uptime():
-    with open('/proc/uptime', 'r') as f:
-        uptime_seconds = float(f.readline().split()[0])
-    uptime = str(timedelta(seconds=uptime_seconds)).split('.')[0]
-    return f"Current uptime is {uptime}"
-
-
-@app.route('/ps', methods=['GET'])
-def _ps():
-    arguments: list[str] = request.args.getlist('arg')
-    arguments_cleaned = [shlex.quote(s) for s in arguments]
-    command_str = f"ps {' '.join(arguments_cleaned)}"
-    command = shlex.split(command_str)
-    result = subprocess.run(command, capture_output=True)
-
-    if result.returncode != 0:
-        return 'Something went wrong', 500
-
-    output = result.stdout.decode()
-    return string.Template('<pre>${output}</pre>').substitute(output=output)
 
 
 if __name__ == "__main__":

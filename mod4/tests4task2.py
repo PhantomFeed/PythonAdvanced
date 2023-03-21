@@ -1,5 +1,5 @@
 import unittest
-from mod4.app import app
+from mod4.task2 import app
 
 
 class TestRegistrationForm(unittest.TestCase):
