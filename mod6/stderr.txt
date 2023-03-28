@@ -1,0 +1,19 @@
+20:16:51: INFO: Вы пытаетесь аутентифицироваться в Skillbox
+20:16:51: INFO: У вас 3 попыток
+20:16:55: WARNING: Вы ввели пустой пароль.
+20:16:57: ERROR: Вы ввели некорретный символ 
+Traceback (most recent call last):
+  File "/home/phantomfeed/PycharmProjects/PythonAdvanced/mod6/task1.py", line 18, in input_and_check_password
+    hasher.update(password.encode("latin-1"))
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 0-2: ordinal not in range(256)
+20:46:43: INFO: Вы пытаетесь аутентифицироваться в Skillbox
+20:46:43: INFO: У вас 3 попыток
+20:46:48: WARNING: Пароль не является сложным
+20:46:50: WARNING: Пароль не является сложным
+20:46:55: WARNING: Пароль не является сложным
+20:46:55: ERROR: Пользователь трижды ввёл неправильный пароль!
+20:48:44: INFO: Вы пытаетесь аутентифицироваться в Skillbox
+20:48:44: INFO: У вас 3 попыток
+20:48:47: WARNING: Пароль не является сложным
+20:48:50: WARNING: Пароль не является сложным
+20:48:52: ERROR: Пользователь трижды ввёл неправильный пароль!
