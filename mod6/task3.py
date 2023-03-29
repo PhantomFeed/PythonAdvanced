@@ -57,7 +57,7 @@ if __name__ == '__main__':
                                                                                           datefmt="%H:%M:%S")
     logger.info('Вы пытаетесь аутентифицироваться в Skillbox')
     count_number: int = 3
-    logger.info(f'У вас {count_number} попыток')
+    logger.info(f'У вас {count_number} попытки')
 
     while count_number > 0:
         if input_and_check_password():
