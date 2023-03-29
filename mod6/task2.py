@@ -1,22 +1,11 @@
 import logging
 import getpass
 import hashlib
-import os
-import re
+
+with open("/usr/share/dict/words", "r") as f:
+    words = f.read().splitlines()
 
 logger = logging.getLogger('password_checker')
-
-
-def book_reader(filename):
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    BOOK_FILE = os.path.join(BASE_DIR, filename)
-    with open(BOOK_FILE) as book:
-        words = book.read()
-        words = re.findall('[a-z]+', words, flags=re.IGNORECASE)
-    return words
-
-
-words = book_reader('words')
 
 
 def is_strong_password(password: str):

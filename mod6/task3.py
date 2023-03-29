@@ -15,16 +15,8 @@ class JsonAdapter(logging.LoggerAdapter):
 logger = JsonAdapter(logging.getLogger('password_checker'))
 
 
-def book_reader(filename):
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    BOOK_FILE = os.path.join(BASE_DIR, filename)
-    with open(BOOK_FILE) as book:
-        words = book.read()
-        words = re.findall('[a-z]+', words, flags=re.IGNORECASE)
-    return words
-
-
-words = book_reader('words')
+with open("/usr/share/dict/words", "r") as f:
+    words = f.read().splitlines()
 
 
 def is_strong_password(password: str):

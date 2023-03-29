@@ -1,12 +1,20 @@
-{"time": "20:57:17", "level": "INFO", "message": "\u0412\u044b \u043f\u044b\u0442\u0430\u0435\u0442\u0435\u0441\u044c \u0430\u0443\u0442\u0435\u043d\u0442\u0438\u0444\u0438\u0446\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u0432 Skillbox"}
-{"time": "20:57:17", "level": "INFO", "message": "\u0423 \u0432\u0430\u0441 3 \u043f\u043e\u043f\u044b\u0442\u043e\u043a"}
-{"time": "20:57:39", "level": "WARNING", "message": "\u041f\u0430\u0440\u043e\u043b\u044c \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0441\u043b\u043e\u0436\u043d\u044b\u043c"}
-{"time": "20:57:44", "level": "ERROR", "message": "\u0412\u044b \u0432\u0432\u0435\u043b\u0438 \u043d\u0435\u043a\u043e\u0440\u0440\u0435\u0442\u043d\u044b\u0439 \u0441\u0438\u043c\u0432\u043e\u043b "}
-Traceback (most recent call last):
-  File "/home/phantomfeed/PycharmProjects/PythonAdvanced/mod6/task3.py", line 48, in input_and_check_password
-    hasher.update(password.encode("latin-1"))
-UnicodeEncodeError: 'latin-1' codec can't encode character '\u044b' in position 0: ordinal not in range(256)
-{"time": "20:57:44", "level": "ERROR", "message": "\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u0442\u0440\u0438\u0436\u0434\u044b \u0432\u0432\u0451\u043b \u043d\u0435\u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u044b\u0439 \u043f\u0430\u0440\u043e\u043b\u044c!"}
 {"time": "21:06:25", "level": "INFO", "message": "Вы пытаетесь аутентифицироваться в Skillbox"}
 {"time": "21:06:25", "level": "INFO", "message": "У вас 3 попыток"}
 {"time": "21:06:34", "level": "ERROR", "message": "Пользователь трижды ввёл неправильный пароль!"}
+{"time": "05:03:40", "level": "INFO", "message": "Вы пытаетесь аутентифицироваться в Skillbox"}
+{"time": "05:03:40", "level": "INFO", "message": "У вас 3 попыток"}
+{"time": "05:03:56", "level": "ERROR", "message": "Пользователь трижды ввёл неправильный пароль!"}
+{"time": "05:15:56", "level": "INFO", "message": "Вы пытаетесь аутентифицироваться в Skillbox"}
+{"time": "05:15:56", "level": "INFO", "message": "У вас 3 попыток"}
+{"time": "05:16:47", "level": "ERROR", "message": "Пользователь трижды ввёл неправильный пароль!"}
+{"time": "05:03:56", "level": "INFO", "message": "Вы пытаетесь аутентифицироваться в Skillbox"}
+{"time": "06:03:56", "level": "INFO", "message": "У вас 3 попыток"}
+{"time": "06:04:56", "level": "WARNING", "message": "Пароль не является сложным"}
+{"time": "06:04:59", "level": "ERROR", "message": "Пользователь трижды ввёл неправильный пароль!"}
+{"time": "17:44:26", "level": "INFO", "message": "Вы пытаетесь аутентифицироваться в Skillbox"}
+{"time": "17:44:26", "level": "INFO", "message": "У вас 3 попыток"}
+{"time": "17:44:29", "level": "ERROR", "message": "Пользователь трижды ввёл неправильный пароль!"}
+{"time": "17:45:12", "level": "INFO", "message": "Вы пытаетесь аутентифицироваться в Skillbox"}
+{"time": "17:45:12", "level": "INFO", "message": "У вас 3 попыток"}
+{"time": "17:45:31", "level": "INFO", "message": "Вы пытаетесь аутентифицироваться в Skillbox"}
+{"time": "17:45:31", "level": "INFO", "message": "У вас 3 попыток"}
