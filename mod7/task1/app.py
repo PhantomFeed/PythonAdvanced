@@ -1,6 +1,7 @@
 from utils import *
 
 logger = logging.getLogger('AppLogger')
+logging.basicConfig(level=logging.INFO)
 
 def main():
     x = input("Введите первое число: ")
@@ -37,5 +38,4 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
     main()

@@ -2,9 +2,16 @@ import sys
 from utils import *
 from FilterByLevel import *
 
-
 logger = logging.getLogger('AppLogger')
-logger.addHandler(FilterByLevel(mode='a'))
+
+format = '%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s'
+formatter = logging.Formatter(format)
+handler = logging.StreamHandler(sys.stdout)
+handler.setFormatter(formatter)
+custom_handler = FilterByLevel(mode='a')
+custom_handler.setFormatter(formatter)
+logging.basicConfig(level=logging.INFO, handlers=[handler, custom_handler])
+
 
 
 def main():
@@ -42,6 +49,4 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG, stream=sys.stdout, format='%(levelname)s | %(name)s | %(asctime)s | %('
-                                                                       'lineno)d | %(message)s')
     main()

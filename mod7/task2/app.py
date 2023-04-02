@@ -2,7 +2,11 @@ import sys
 from utils import *
 
 logger = logging.getLogger('AppLogger')
-
+format = '%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s'
+formatter = logging.Formatter(format)
+handler = logging.StreamHandler(sys.stdout)
+handler.setFormatter(formatter)
+logging.basicConfig(level=logging.INFO, handlers=[handler])
 
 def main():
     x = input("Введите первое число: ")
@@ -39,6 +43,4 @@ def main():
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG, stream=sys.stdout,
-                        format='%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s')
     main()
