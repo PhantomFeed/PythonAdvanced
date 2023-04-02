@@ -4,6 +4,13 @@ from FilterByLevel import *
 from dictConfig import dict_config
 
 logger = logging.getLogger('AppLogger')
+# format = '%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s'
+# formatter = logging.Formatter(format)
+# handler = logging.StreamHandler(sys.stdout)
+# handler.setFormatter(formatter)
+# custom_handler = FilterByLevel(mode='a')
+# custom_handler.setFormatter(formatter)
+# logging.basicConfig(level=logging.INFO, handlers=[handler, custom_handler])
 logging.config.dictConfig(dict_config)
 
 
