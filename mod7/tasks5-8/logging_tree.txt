@@ -1,5 +1,31 @@
 <--""
    Level WARNING
    |
+   o<--"AppLogger"
+   |   Level DEBUG
+   |   Filter <ASCII.ASCIIFilter object at 0x7f50b2054a00>
+   |   Handler Stream <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+   |     Level DEBUG
+   |     Formatter fmt='%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s' datefmt=None
+   |   Handler <FilterByLevel (DEBUG)>
+   |     Level DEBUG
+   |     Formatter fmt='%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s' datefmt=None
+   |
+   o<--"FlaskLogger"
+   |   Level DEBUG
+   |   Handler HTTP POST to http://localhost:5000//save_log
+   |     Level INFO
+   |
    o<--"UtilsLogger"
-       Level NOTSET so inherits level WARNING
+       Level DEBUG
+       Filter <ASCII.ASCIIFilter object at 0x7f50b2054a00>
+       Handler Stream <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+         Level DEBUG
+         Formatter fmt='%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s' datefmt=None
+       Handler <FilterByLevel (DEBUG)>
+         Level DEBUG
+         Formatter fmt='%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s' datefmt=None
+       Handler TimedRotatingFile '/home/phantomfeed/PycharmProjects/PythonAdvanced/mod7/tasks5-8/utils.log' when='H' interval=36000 backupCount=5
+         Level INFO
+         Filter <ASCII.ASCIIFilter object at 0x7f50b2054a00>
+         Formatter fmt='%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s' datefmt=None

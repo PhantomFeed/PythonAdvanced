@@ -1,5 +1,7 @@
 import logging
+from logging import config
 import logging_tree
+from dictConfig import *
 
 
 def logging_tree_to_txt(file):
@@ -8,7 +10,7 @@ def logging_tree_to_txt(file):
 
 
 logger = logging.getLogger('UtilsLogger')
-
+logging.config.dictConfig(dict_config)
 
 def validate_num(num):
     try:

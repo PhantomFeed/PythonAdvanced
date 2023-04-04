@@ -1,12 +1,33 @@
-INFO | UtilsLogger | 2023-04-02 17:50:44,813 | 8 | 1 - корректное число
-INFO | UtilsLogger | 2023-04-02 17:50:44,814 | 8 | 2 - корректное число
-INFO | UtilsLogger | 2023-04-02 17:50:44,815 | 30 | Деление 1.0 на 2.0
-ERROR | UtilsLogger | 2023-04-02 18:00:11,831 | 11 | a - некорректное число
-INFO | UtilsLogger | 2023-04-02 18:35:42,305 | 16 | 1 - корректное число
-INFO | UtilsLogger | 2023-04-02 18:35:42,306 | 16 | 2 - корректное число
-INFO | UtilsLogger | 2023-04-02 18:35:42,306 | 38 | Деление 1.0 на 2.0
-INFO | UtilsLogger | 2023-04-02 18:36:39,567 | 16 | 1 - корректное число
-INFO | UtilsLogger | 2023-04-02 18:36:39,568 | 16 | 2 - корректное число
-INFO | UtilsLogger | 2023-04-02 18:36:39,569 | 38 | Деление 1.0 на 2.0
-INFO | UtilsLogger | 2023-04-02 19:46:00,632 | 17 | You can see me!
-INFO | UtilsLogger | 2023-04-02 19:46:00,633 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:04:28,470 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:04:28,472 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:05:42,368 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:05:42,369 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:05:47,956 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:05:47,957 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:07:24,928 | 16 | 12 - корректное число
+INFO | UtilsLogger | 2023-04-04 19:07:24,928 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:07:24,929 | 18 | А меня нет
+INFO | UtilsLogger | 2023-04-04 19:07:24,929 | 16 | 5 - корректное число
+INFO | UtilsLogger | 2023-04-04 19:07:24,929 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:07:24,930 | 18 | А меня нет
+INFO | UtilsLogger | 2023-04-04 19:07:24,930 | 36 | Умножение 12.0 на 5.0
+INFO | UtilsLogger | 2023-04-04 19:08:57,936 | 16 | 12 - корректное число
+INFO | UtilsLogger | 2023-04-04 19:08:57,937 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:08:57,937 | 18 | А меня нет
+INFO | UtilsLogger | 2023-04-04 19:08:57,938 | 16 | 6 - корректное число
+INFO | UtilsLogger | 2023-04-04 19:08:57,938 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:08:57,938 | 18 | А меня нет
+INFO | UtilsLogger | 2023-04-04 19:08:57,939 | 36 | Умножение 12.0 на 6.0
+INFO | UtilsLogger | 2023-04-04 19:09:19,056 | 16 | 123 - корректное число
+INFO | UtilsLogger | 2023-04-04 19:09:19,057 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:09:19,057 | 18 | А меня нет
+INFO | UtilsLogger | 2023-04-04 19:09:19,058 | 16 | 2 - корректное число
+INFO | UtilsLogger | 2023-04-04 19:09:19,058 | 17 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:09:19,058 | 18 | А меня нет
+INFO | UtilsLogger | 2023-04-04 19:09:19,059 | 36 | Умножение 123.0 на 2.0
+INFO | UtilsLogger | 2023-04-04 19:16:55,187 | 19 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:16:55,188 | 19 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:17:24,617 | 19 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:17:24,618 | 19 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:17:52,088 | 19 | You can see me!
+INFO | UtilsLogger | 2023-04-04 19:17:52,089 | 19 | You can see me!
