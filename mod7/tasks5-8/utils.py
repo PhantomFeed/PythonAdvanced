@@ -12,6 +12,7 @@ def logging_tree_to_txt(file):
 logger = logging.getLogger('UtilsLogger')
 logging.config.dictConfig(dict_config)
 
+
 def validate_num(num):
     try:
         float(num)

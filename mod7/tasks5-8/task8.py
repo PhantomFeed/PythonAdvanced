@@ -2,6 +2,7 @@ from flask import Flask, request
 from logging import config
 from dictConfig import *
 
+
 app = Flask(__name__)
 logger = logging.getLogger('FlaskLogger')
 logging.config.dictConfig(dict_config)

@@ -29,3 +29,4 @@
          Level INFO
          Filter <ASCII.ASCIIFilter object at 0x7f50b2054a00>
          Formatter fmt='%(levelname)s | %(name)s | %(asctime)s | %(lineno)d | %(message)s' datefmt=None
+

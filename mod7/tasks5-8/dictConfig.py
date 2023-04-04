@@ -56,7 +56,7 @@ dict_config = {
         "FlaskLogger": {
             "level": "DEBUG",
             "handlers": ['HTTP']
-        }
+        },
     },
     "filters": {
         "ASCIIFilter":{
