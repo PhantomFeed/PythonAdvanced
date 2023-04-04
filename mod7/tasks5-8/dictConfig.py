@@ -1,6 +1,5 @@
 import sys
 from ASCII import ASCIIFilter
-
 from FilterByLevel import *
 
 dict_config = {
@@ -36,10 +35,11 @@ dict_config = {
             "filters": ['ASCIIFilter'],
         },
         "HTTP": {
-            "()": "logging.handlers.HTTPHandler",
+            "class": "logging.handlers.HTTPHandler",
             "host": "localhost:5000",
-            "url": "/logs",
-            "method": "POST"
+            "url": "/save_log",
+            "method": "POST",
+            "level": "INFO",
         }
     },
     "loggers": {
@@ -53,7 +53,7 @@ dict_config = {
             "handlers": ["console", "file", "rotation"],
             "filters": ["ASCIIFilter"]
         },
-        "FlaskLogger":{
+        "FlaskLogger": {
             "level": "DEBUG",
             "handlers": ['HTTP']
         }
