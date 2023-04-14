@@ -11,7 +11,6 @@ with sqlite3.connect('hw_3_database.db') as db:
     result = cursor.execute("SELECT COUNT(DISTINCT value) FROM table_1").fetchone()[0]
     print(f'Количество уникальных записей в таблице table_1: {result}')
 
-
     result = cursor.execute("SELECT COUNT(*) FROM table_1 WHERE value IN (SELECT value FROM table_2)").fetchone()[0]
     print(f'Количество записей из таблицы table_1 в таблице table_2: {result}')
 
