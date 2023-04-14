@@ -17,3 +17,5 @@ with sqlite3.connect('hw_2_database.db') as db:
 
     result = cursor.execute("SELECT * FROM table_checkout ORDER BY sold_count").fetchone()[0]
     print(f'Самый непопулярный цвет телефона - {result}')
+
+    db.close()

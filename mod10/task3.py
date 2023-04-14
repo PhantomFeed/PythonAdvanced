@@ -16,3 +16,5 @@ with sqlite3.connect('hw_3_database.db') as db:
 
     result = cursor.execute("SELECT COUNT(*) FROM table_1 WHERE value IN (SELECT value FROM table_2) AND value IN (SELECT value FROM table_3)").fetchone()[0]
     print("Количество записей из таблицы table_1 в таблицах table_2 и table_3:", result)
+
+    db.close()

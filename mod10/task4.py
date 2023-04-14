@@ -19,3 +19,5 @@ with sqlite3.connect('hw_4_database.db') as db:
     cursor.execute(f"SELECT SUM(salary) - {T} FROM salaries")
     K = cursor.fetchone()[0]
     print(f"Социальное неравенство на острове: {round(T * 100 / K, 2)}")
+
+    db.close()
