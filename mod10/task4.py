@@ -20,4 +20,4 @@ with sqlite3.connect('hw_4_database.db') as db:
     K = cursor.fetchone()[0]
     print(f"Социальное неравенство на острове: {round(T * 100 / K, 2)}")
 
-    db.close()
+db.close()
