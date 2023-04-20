@@ -12,11 +12,16 @@ def create_table_birds(cursor: sqlite3.Cursor) -> None:
     """)
 
 sql_request = """
-INSERT INTO birds (name, date_time) VALUES (?, ?)
+    INSERT 
+        INTO birds (name, date_time) 
+        VALUES (?, ?)
 """
 
 sql_request_exist = """
-SELECT EXISTS(SELECT 1 FROM birds WHERE name = ? LIMIT 1) 
+    SELECT EXISTS(
+        SELECT 1 
+            FROM birds 
+            WHERE name = ? LIMIT 1) 
 """
 
 def log_bird(
