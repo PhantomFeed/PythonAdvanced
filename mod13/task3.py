@@ -1,17 +1,24 @@
 import sqlite3
 import datetime
 
+sql_request = """
+INSERT INTO birds (name, date_time) VALUES (?, ?)
+"""
+
+sql_request_exist = """
+SELECT EXISTS(SELECT 1 FROM birds WHERE name = ? LIMIT 1) 
+"""
 
 def log_bird(
         cursor: sqlite3.Cursor,
         bird_name: str,
         date_time: str,
 ) -> None:
-    cursor.execute("INSERT INTO birds (name, date_time) VALUES (?, ?)", (bird_name, date_time))
+    cursor.execute(sql_request, (bird_name, date_time))
 
 
 def check_if_such_bird_already_seen(cursor: sqlite3.Cursor, bird_name: str) -> bool:
-    cursor.execute("SELECT EXISTS(SELECT 1 FROM birds WHERE name = ? LIMIT 1)", (bird_name,))
+    cursor.execute(sql_request_exist, (bird_name,))
     return bool(cursor.fetchone()[0])
 
 
@@ -20,7 +27,7 @@ if __name__ == "__main__":
     name = input("Пожалуйста введите имя птицы\n> ")
     count_str = input("Сколько птиц вы увидели?\n> ")
     count = int(count_str)
-    right_now = datetime.datetime.utcnow().isoformat()
+    current_time = datetime.datetime.utcnow().isoformat()
 
     with sqlite3.connect("birds.db") as connection:
         cursor = connection.cursor()
@@ -28,4 +35,4 @@ if __name__ == "__main__":
             print("Такую птицу мы уже наблюдали!")
         else:
             print("Такую птицу мы видим впервые!")
-            log_bird(cursor, name, right_now)
+            log_bird(cursor, name, current_time)
