@@ -1,6 +1,16 @@
 import sqlite3
 import datetime
 
+
+def create_table_birds(cursor: sqlite3.Cursor) -> None:
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS birds (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            date_time TEXT NOT NULL
+        )
+    """)
+
 sql_request = """
 INSERT INTO birds (name, date_time) VALUES (?, ?)
 """
@@ -29,8 +39,9 @@ if __name__ == "__main__":
     count = int(count_str)
     current_time = datetime.datetime.utcnow().isoformat()
 
-    with sqlite3.connect("birds.db") as connection:
+    with sqlite3.connect("hw.db") as connection:
         cursor = connection.cursor()
+        create_table_birds(cursor)
         if check_if_such_bird_already_seen(cursor, name):
             print("Такую птицу мы уже наблюдали!")
         else:
