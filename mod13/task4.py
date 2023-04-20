@@ -27,11 +27,11 @@ sql_request_del = """
 
 def ivan_sovin_the_most_effective(cursor: sqlite3.Cursor, name: str) -> None:
     the_most_effective_employee = cursor.execute(sql_request_most_effective).fetchone()[0]
-    employee = cursor.execute(sql_request_salary, (name,)).fetchone()
+    employee = cursor.execute(sql_request_salary, (name,)).fetchone()[0]
     if not employee:
         print(f"Сотрудник {name} не найден в базе данных!")
         return
-    salary = int(employee[0] * 1.1)
+    salary = int(employee * 1.1)
     if salary <= the_most_effective_employee:
         cursor.execute(sql_request_update, (salary, name))
         print(f"Зарплата сотрудника {name} успешно повышена до {salary} рублей!")
