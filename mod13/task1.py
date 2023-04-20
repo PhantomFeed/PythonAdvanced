@@ -1,25 +1,24 @@
 import sqlite3
 
+sql_request = """
+    SELECT COUNT(*)
+        FROM(SELECT *
+        FROM table_truck_with_vaccine)
+        WHERE truck_number = ? AND temperature_in_celsius NOT BETWEEN 16 and 20
+        """
+
 
 def check_if_vaccine_has_spoiled(
         cursor: sqlite3.Cursor,
         truck_number: str
 ) -> bool:
-    cursor.execute("""
-        SELECT *
-        FROM table_truck_with_vaccine
-        WHERE truck_number = ?
-    """, (truck_number,))
-    rows = cursor.fetchall()
-
-    for i in range(len(rows) - 2):
-        if rows[i][3] < -20 or rows[i][3] > -16:
-            if rows[i + 1][3] - rows[i][3] >= 3 and rows[i + 2][3] - rows[i][3] >= 3:
-                print("Вакцина испорчена")
-                return True
-
-    print("Вакцина в порядке")
-    return False
+    result = cursor.execute(sql_request, (truck_number,)).fetchone()[0]
+    if result >= 3:
+        print("Вакцина испорчена")
+        return False
+    else:
+        print("Вакцина в порядке")
+        return True
 
 
 if __name__ == '__main__':
@@ -27,3 +26,5 @@ if __name__ == '__main__':
         cursor = db.cursor()
         truck_number = input('Введите номер грузовика: ')
         vaccine = check_if_vaccine_has_spoiled(cursor, truck_number)
+
+    db.close()
