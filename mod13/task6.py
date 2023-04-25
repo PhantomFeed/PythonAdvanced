@@ -2,37 +2,42 @@ import sqlite3
 from datetime import datetime, timedelta
 
 
+sql_request_insert_in_schedule = """
+    INSERT INTO table_friendship_schedule (employee_id, date)
+        VALUES (?, ?); 
+"""
+
 def update_work_schedule(cursor: sqlite3.Cursor) -> None:
-    cursor.execute("SELECT id, preferable_sport FROM table_friendship_employees")
-    employee_sports = {row[0]: row[1] for row in cursor.fetchall()}
-
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    sports = {'Monday': 'football', 'Tuesday': 'hockey', 'Wednesday': 'chess', 'Thursday': 'SUP-surfing',
-              'Friday': 'boxing', 'Saturday': 'Dota2', 'Sunday': 'chess-boxing'}
+    sports = ['футбол', 'хоккей', 'шахматы', 'SUP сёрфинг', 'бокс', 'Dota2', 'шах-бокс']
 
-    cursor.execute("SELECT MIN(date) FROM table_friendship_schedule")
-    start_date = datetime.strptime(cursor.fetchone()[0], '%Y-%m-%d')
+    cursor.execute("DELETE FROM table_friendship_schedule")
+    cursor.execute("SELECT * FROM table_friendship_employees")
+    employees = cursor.fetchall()
+    work_days = {}
+    dates = {}
+    current_date = datetime.strptime("2020-01-01", "%Y-%m-%d").date()
 
-    date_index = 0
-    employee_index = 0
-
-    while employee_index < 356:
-        current_date = start_date + timedelta(days=date_index)
+    for i in range(366):
         current_day = days[current_date.weekday()]
+        for employee in employees:
+            employee_id = employee[0]
+            busy_day = days[sports.index(employee[2])]
+            if current_day == busy_day:
+                continue
 
-        for i in range(10):
-            employee_id = employee_index + i
-            if employee_id in employee_sports and employee_sports[employee_id] == sports[current_day]:
-                date_index += 1
+            if employee_id not in work_days:
+                work_days[employee_id] = 0
+            work_days[employee_id] += 1
+            cursor.execute(sql_request_insert_in_schedule, (employee_id, current_date))
+            if current_date not in dates:
+                dates[current_date] = 0
+            dates[current_date] += 1
+            if work_days[employee_id] == 11:
+                employees.pop(employees.index(employee))
+            if dates[current_date] == 10:
+                current_date += timedelta(days=1)
                 break
-        else:
-            for i in range(10):
-                employee_id = employee_index + i
-                cursor.execute("UPDATE table_friendship_schedule SET employee_id = ? WHERE date = ?",
-                               (employee_id, current_date.strftime('%Y-%m-%d')))
-
-            date_index += 1
-            employee_index += 10
 
 
 if __name__ == "__main__":
