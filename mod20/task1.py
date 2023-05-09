@@ -73,7 +73,7 @@ class ReceivingBook(Base):
         if self.date_of_return:
             return (self.date_of_return - self.date_of_issue).days
         else:
-            return (datetime.now() - self.date_of_issue).days
+            return (datetime.date(datetime.now()) - self.date_of_issue).days
 
 
 @app.before_request
@@ -95,7 +95,8 @@ def get_overdue_books():
     overdue_books = []
     receiving_books = session.query(ReceivingBook).filter(ReceivingBook.date_of_return == None).all()
     for receiving_book in receiving_books:
-        overdue_books.append(receiving_book.to_json())
+        if receiving_book.count_days_since_receiving_books > 14:
+            overdue_books.append(receiving_book.to_json())
     return jsonify(overdue_books), 200
 
 
